@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+
+
+public class AAnimal {
+	
+	//Declaration of variables
+	private String s;
+	private String a;
+	private String v;
+	private String h;
+	private String c;
+	private String d;
+	private String w;
+	private String animal;
+	private String prey;
+	
+	
+	//Animal Instance to set variables
+	Animal aN = new Animal(s, a, v, h, c, d, w);
+	//Scanner Instance to receive and manipulate user input
+	Scanner sc = new Scanner(System.in);
+	
+	//A Animal constructor for String sequence of Species and characteristics
+	public AAnimal(String animal) {
+		this.animal = animal;
+	}
+	//Get user input to create Species
+	public void species()
+	{
+		System.out.print("Please enter the speciece of the animal: ");
+		s = sc.nextLine();
+		aN.setSpecies(s);
+	}
+	
+	public String find()
+	{
+		System.out.print("Plesae enter the species of the animal you are looking for: ");
+		String prey = sc.nextLine();
+		setPrey();
+		return prey;
+	}
+	
+	public void setPrey()
+	{
+		this.prey = prey;
+	}
+	public String getPrey()
+	{
+		return prey;
+	}
+	//Begin user input to build Characteristics
+	public void animalClass()
+	{
+		
+		System.out.printf("Is the %s a 1) Mammal, 2) Reptile, 3) Bird, 4) Fish, 5) Amphibion, or 6) Arthropod? ",aN.getSpecies());
+		System.out.println("Enter the corresponding number: ");
+		int answer = sc.nextInt();
+		while(answer <= 0 | answer >= 7)
+		{
+			System.out.println("Please enter a number from 1 - 6");
+			answer = sc.nextInt();
+		}
+			switch(answer){
+			case 1: a = "Mammal"; break;
+			case 2: a = "Reptile"; break;
+			case 3: a = "Bird"; break;
+			case 4: a = "Fish"; break;
+			case 5: a = "Amphibion"; break;
+			case 6: a = "Arthropod"; break;
+	
+		}aN.setAnimalClass(a);
+		
+	}
+	
+	public void vertebrate()
+	{
+		
+		System.out.printf("Is the %s a Vertebrate? (Y/N)",aN.getSpecies());
+		String input = sc.next().toLowerCase();
+		if(input == "y")
+		{
+			v = "Vertebrate";
+		}else{
+			v = "Invetebrate";
+		}
+		aN.setVertebrate(v);	
+	}
+	
+	public void habitat()
+	{
+		System.out.printf("What is the %s's natural habitat? ",aN.getSpecies());
+		h = sc.nextLine();
+		aN.setHabitat(h);
+	}
+	
+	public void color()
+	{
+		System.out.printf("What is the natural color(s) of the %s? (Please seperate multiples with a comma)", aN.getSpecies());
+		c = sc.nextLine();
+		aN.setColor(c);
+	}
+	
+	public void diet()
+	{
+		System.out.printf("Please entter the %s's diet: ", aN.getSpecies());
+		d = sc.nextLine();
+		aN.setDiet(d);
+	}
+	
+	public void weight()
+	{
+		System.out.printf("Plesae enter the %s's average weight in kilograms: ", aN.getSpecies());
+		Float kilo = sc.nextFloat();
+		w = kilo.toString();
+		aN.setWeight(w);
+	}
+	
+	public String getAnimal()
+	{
+		animal = (s + " " + a + " " + v + " " + h + " "+ c + " " + d + " " + w);
+		return animal.toString();
+	}
+	
+	public void displayTest()
+	{
+	System.out.println(s + " " + a + " " + v + " " + h + " "+ c + " " + d + " " + w);
+	}
+}
